@@ -1,86 +1,98 @@
-{{ define "main" }}
-<div class="three-column-layout">
-    <!-- 左侧：文件目录 -->
-    <aside class="sidebar-left">
-        <div class="file-tree">
-            <h3>文章目录</h3>
-            <ul class="tree">
-                {{ range (where site.RegularPages "Type" "posts") }}
-                <li>
-                    <a href="{{ .Permalink }}">{{ .Title }}</a>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
-    </aside>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <div class="nav-brand">
+                        <img src="/avatar.jpg" alt="头像" class="avatar">
+                        <h1 class="site-title">{{ .Site.Title }}</h1>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <ul class="nav-menu">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/posts/">归档</a></li>
+                        <li><a href="/about/">关于</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
 
-    <!-- 中间：首页内容 -->
-    <main class="content">
-        <div class="home-intro">
-            <h1>{{ .Site.Title }}</h1>
-            <p class="description">{{ .Site.Params.description }}</p>
-        </div>
-
-        <h2>最新文章</h2>
-        <div class="posts-list">
-            {{ range first 10 (where site.RegularPages "Type" "posts") }}
-            <article class="post-preview">
-                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-                <div class="post-meta">
-                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
-                    {{ with .Params.categories }}
-                    <span class="categories"> |
-                        {{ range $i, $cat := . }}
-                            {{ if $i }} / {{ end }}{{ $cat }}
+        <!-- 主体内容 -->
+        <main class="main-content">
+            <!-- 左侧文章目录 -->
+            <aside class="sidebar-left">
+                <div class="sidebar-section">
+                    <h3>文章目录</h3>
+                    <ul class="tree">
+                        {{ range (where site.RegularPages "Type" "posts") }}
+                        <li>
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </li>
                         {{ end }}
-                    </span>
-                    {{ end }}
+                    </ul>
                 </div>
-                {{ if .Summary }}
-                <div class="summary">
-                    {{ .Summary }}
-                </div>
-                {{ end }}
-                {{ with .Params.tags }}
-                <div class="post-tags">
-                    {{ range . }}
-                    <span class="tag">{{ . }}</span>
-                    {{ end }}
-                </div>
-                {{ end }}
-            </article>
-            {{ end }}
-        </div>
-    </main>
+            </aside>
 
-    <!-- 右侧：分类和标签 -->
-    <aside class="sidebar-right">
-        {{ if .Site.Taxonomies.categories }}
-        <div class="categories">
-            <h3>分类</h3>
-            <ul>
-                {{ range $key, $taxonomy := .Site.Taxonomies.categories }}
-                <li>
-                    <a href="{{ "/categories/" | relURL }}{{ $key | urlize }}">{{ $key }}</a>
-                    <span class="count">({{ $taxonomy.Count }})</span>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
-        {{ end }}
-
-        {{ if .Site.Taxonomies.tags }}
-        <div class="tags">
-            <h3>标签</h3>
-            <div class="tag-cloud">
-                {{ range $key, $taxonomy := .Site.Taxonomies.tags }}
-                <span class="tag">
-                    <a href="{{ "/tags/" | relURL }}{{ $key | urlize }}">{{ $key }}</a>
-                </span>
+            <!-- 中间文章列表 -->
+            <div class="post-area">
+                {{ range (where site.RegularPages "Type" "posts") }}
+                <article class="post-card">
+                    <div class="post-card-content">
+                        <h2 class="post-card-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h2>
+                        <div class="post-card-meta">
+                            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+                            {{ with .Params.categories }}
+                            <span class="categories">
+                                {{ range $i, $cat := . }}
+                                    {{ if $i }}, {{ end }}{{ $cat }}
+                                {{ end }}
+                            </span>
+                            {{ end }}
+                        </div>
+                    </div>
+                </article>
                 {{ end }}
             </div>
-        </div>
-        {{ end }}
-    </aside>
-</div>
-{{ end }}
+
+            <!-- 右侧归档 - 按年月显示 -->
+            <aside class="sidebar-right">
+                <div class="sidebar-section">
+                    <h3>归档</h3>
+                    <div class="archive-timeline">
+                        {{ range (.Site.RegularPages.GroupByDate "2006年1月") }}
+                        <div class="archive-year-group">
+                            <h4 class="archive-year">{{ .Key }}</h4>
+                            <ul class="archive-posts">
+                                {{ range .Pages }}
+                                <li class="archive-post-item">
+                                    <a href="{{ .Permalink }}" class="archive-post-link">{{ .Title }}</a>
+                                    <span class="archive-post-date">{{ .Date.Format "01-02" }}</span>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            <p>&copy; {{ now.Year }} {{ .Site.Params.author | default "蒲素" }}. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

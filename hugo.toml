@@ -1,12 +1,6 @@
 baseURL = 'https://www.pusu.life/'
 languageCode = 'zh-cn'
 title = '蒲素的博客'
-theme = 'custom-theme'
-
-[params]
-  author = '蒲素'
-  description = '技术博客与思考'
-  keywords = ['技术', '博客', '编程', '思考']
 
 [menu]
   [[menu.main]]
@@ -22,12 +16,11 @@ theme = 'custom-theme'
     url = '/about/'
     weight = 30
 
+[params]
+  author = '蒲素'
+  description = '技术博客与思考'
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-  [markup.highlight]
-    style = 'github-dark'
-    lineNos = true
-    lineNumbersInTable = false
-    guessSyntax = true
