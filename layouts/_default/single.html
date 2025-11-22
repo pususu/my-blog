@@ -7,96 +7,66 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="doc-container">
+    <div class="container">
         <!-- 顶部导航栏 -->
-        <header class="doc-top-nav">
+        <header class="top-nav">
             <div class="nav-content">
                 <div class="nav-left">
-                    <a href="/" class="nav-brand">
-                        <img src="/avatar.jpg" alt="头像" class="nav-avatar">
-                        <span class="site-name">{{ .Site.Title }}</span>
-                    </a>
+                    <div class="nav-brand">
+                        <img src="/avatar.jpg" alt="头像" class="avatar">
+                        <h1 class="site-title">{{ .Site.Title }}</h1>
+                    </div>
                 </div>
-                <nav class="nav-right">
+                <div class="nav-right">
                     <a href="/">首页</a>
                     <a href="/posts/">归档</a>
                     <a href="/about/">关于</a>
-                </nav>
+                </div>
             </div>
         </header>
 
-        <!-- 主体内容区域 -->
-        <div class="doc-main">
-            <!-- 左侧目录 -->
-            <aside class="doc-sidebar-left">
-                <div class="sidebar-section">
-                    <h3>文章目录</h3>
-                    <div class="doc-toc">
-                        {{ .TableOfContents }}
+        <!-- 文章内容 -->
+        <main class="article-container">
+            <article class="article">
+                <header class="article-header">
+                    <div class="article-meta">
+                        <time class="article-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                            {{ .Date.Format "2006年1月2日" }}
+                        </time>
                     </div>
-                </div>
-            </aside>
-
-            <!-- 中间文档内容 -->
-            <main class="doc-content">
-                <article class="doc-article">
-                    <header class="doc-header">
-                        <h1 class="doc-title">{{ .Title }}</h1>
-
-                        {{ if .Date }}
-                        <div class="doc-meta">
-                            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                                {{ .Date.Format "2006年1月2日" }}
-                            </time>
-                            {{ with .Params.categories }}
-                            <span class="doc-categories">
-                                {{ range $i, $cat := . }}
-                                    {{ if $i }}, {{ end }}{{ $cat }}
+                    <h1 class="article-title">{{ .Title }}</h1>
+                    <div class="article-info-line"></div>
+                    <div class="article-details">
+                        <div class="detail-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                            <span>蒲素</span>
+                        </div>
+                        {{ with .Params.tags }}
+                        <div class="detail-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                                <line x1="7" y1="7" x2="7.01" y2="7"/>
+                            </svg>
+                            <div class="tags">
+                                {{ range $i, $tag := . }}
+                                    <span class="tag">{{ $tag }}</span>
                                 {{ end }}
-                            </span>
-                            {{ end }}
+                            </div>
                         </div>
                         {{ end }}
-                    </header>
-
-                    <div class="doc-body">
-                        {{ .Content }}
                     </div>
-                </article>
-            </main>
+                </header>
 
-            <!-- 右侧辅助信息 -->
-            <aside class="doc-sidebar-right">
-                <div class="sidebar-section">
-                    <h3>文章信息</h3>
-                    <div class="doc-info">
-                        <div class="info-item">
-                            <span class="info-label">发布日期</span>
-                            <span class="info-value">{{ .Date.Format "2006-01-02" }}</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">字数</span>
-                            <span class="info-value">{{ .WordCount }} 字</span>
-                        </div>
-                    </div>
+                <div class="article-content">
+                    {{ .Content }}
                 </div>
-
-                <div class="sidebar-section">
-                    <h3>最近文章</h3>
-                    <ul class="recent-posts">
-                        {{ range first 5 (where site.RegularPages "Type" "posts") }}
-                        <li>
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                            <span class="post-date">{{ .Date.Format "01-02" }}</span>
-                        </li>
-                        {{ end }}
-                    </ul>
-                </div>
-            </aside>
-        </div>
+            </article>
+        </main>
 
         <!-- 底部 -->
-        <footer class="doc-footer">
+        <footer class="footer">
             <p>&copy; {{ now.Year }} {{ .Site.Params.author | default "蒲素" }}. All rights reserved.</p>
         </footer>
     </div>

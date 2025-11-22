@@ -1,87 +1,70 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1315&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World - 我的博客正式上线 - 蒲素的博客</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="doc-container">
+    <div class="container">
         
-        <header class="doc-top-nav">
+        <header class="top-nav">
             <div class="nav-content">
                 <div class="nav-left">
-                    <a href="/" class="nav-brand">
-                        <img src="/avatar.jpg" alt="头像" class="nav-avatar">
-                        <span class="site-name">蒲素的博客</span>
-                    </a>
+                    <div class="nav-brand">
+                        <img src="/avatar.jpg" alt="头像" class="avatar">
+                        <h1 class="site-title">蒲素的博客</h1>
+                    </div>
                 </div>
-                <nav class="nav-right">
+                <div class="nav-right">
                     <a href="/">首页</a>
                     <a href="/posts/">归档</a>
                     <a href="/about/">关于</a>
-                </nav>
+                </div>
             </div>
         </header>
 
         
-        <div class="doc-main">
-            
-            <aside class="doc-sidebar-left">
-                <div class="sidebar-section">
-                    <h3>文章目录</h3>
-                    <div class="doc-toc">
-                        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#为什么要建博客">为什么要建博客？</a>
-      <ul>
-        <li><a href="#技术沉淀">技术沉淀</a></li>
-        <li><a href="#分享交流">分享交流</a></li>
-      </ul>
-    </li>
-    <li><a href="#博客特色">博客特色</a>
-      <ul>
-        <li><a href="#暗蓝色主题">暗蓝色主题</a></li>
-        <li><a href="#三栏布局">三栏布局</a></li>
-        <li><a href="#代码高亮">代码高亮</a></li>
-      </ul>
-    </li>
-    <li><a href="#技术栈">技术栈</a></li>
-    <li><a href="#未来计划">未来计划</a></li>
-    <li><a href="#结语">结语</a></li>
-  </ul>
-</nav>
+        <main class="article-container">
+            <article class="article">
+                <header class="article-header">
+                    <div class="article-meta">
+                        <time class="article-date" datetime="2025-01-15T10:00:00Z">
+                            2025年1月15日
+                        </time>
                     </div>
-                </div>
-            </aside>
-
-            
-            <main class="doc-content">
-                <article class="doc-article">
-                    <header class="doc-header">
-                        <h1 class="doc-title">Hello World - 我的博客正式上线</h1>
-
-                        
-                        <div class="doc-meta">
-                            <time datetime="2025-01-15T10:00:00Z">
-                                2025年1月15日
-                            </time>
-                            
-                            <span class="doc-categories">
-                                
-                                    博客
-                                
-                                    , 技术
-                                
-                            </span>
-                            
+                    <h1 class="article-title">Hello World - 我的博客正式上线</h1>
+                    <div class="article-info-line"></div>
+                    <div class="article-details">
+                        <div class="detail-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                            <span>蒲素</span>
                         </div>
                         
-                    </header>
+                        <div class="detail-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                                <line x1="7" y1="7" x2="7.01" y2="7"/>
+                            </svg>
+                            <div class="tags">
+                                
+                                    <span class="tag">Hugo</span>
+                                
+                                    <span class="tag">博客</span>
+                                
+                                    <span class="tag">静态网站</span>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </header>
 
-                    <div class="doc-body">
-                        <h1 id="hello-world---我的博客正式上线">Hello World - 我的博客正式上线</h1>
+                <div class="article-content">
+                    <h1 id="hello-world---我的博客正式上线">Hello World - 我的博客正式上线</h1>
 <p>今天，我的个人技术博客正式上线了！这是一个值得纪念的日子。</p>
 <h2 id="为什么要建博客">为什么要建博客？</h2>
 <h3 id="技术沉淀">技术沉淀</h3>
@@ -160,47 +143,12 @@
 <hr>
 <p><strong>tags</strong>: <code>#博客</code> <code>#技术</code> <code>#Hugo</code></p>
 
-                    </div>
-                </article>
-            </main>
-
-            
-            <aside class="doc-sidebar-right">
-                <div class="sidebar-section">
-                    <h3>文章信息</h3>
-                    <div class="doc-info">
-                        <div class="info-item">
-                            <span class="info-label">发布日期</span>
-                            <span class="info-value">2025-01-15</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">字数</span>
-                            <span class="info-value">76 字</span>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="sidebar-section">
-                    <h3>最近文章</h3>
-                    <ul class="recent-posts">
-                        
-                        <li>
-                            <a href="http://localhost:1314/posts/hugo-tutorial/">Hugo博客搭建教程</a>
-                            <span class="post-date">01-20</span>
-                        </li>
-                        
-                        <li>
-                            <a href="http://localhost:1314/posts/hello-world/">Hello World - 我的博客正式上线</a>
-                            <span class="post-date">01-15</span>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </aside>
-        </div>
+            </article>
+        </main>
 
         
-        <footer class="doc-footer">
+        <footer class="footer">
             <p>&copy; 2025 蒲素. All rights reserved.</p>
         </footer>
     </div>
