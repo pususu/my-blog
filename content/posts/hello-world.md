@@ -1,6 +1,6 @@
 ---
 title: "Hello World - 我的博客正式上线"
-date: 2024-01-15T10:00:00Z
+date: 2025-01-15T10:00:00Z
 categories: ["博客", "技术"]
 tags: ["Hugo", "博客", "静态网站"]
 draft: false

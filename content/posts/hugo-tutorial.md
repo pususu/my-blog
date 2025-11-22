@@ -1,6 +1,6 @@
 ---
 title: "Hugo博客搭建教程"
-date: 2024-01-20T14:30:00Z
+date: 2025-01-20T14:30:00Z
 categories: ["教程", "Hugo"]
 tags: ["Hugo", "静态网站", "教程"]
 draft: false
