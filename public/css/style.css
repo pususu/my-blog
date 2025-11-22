@@ -901,7 +901,7 @@ img {
 }
 
 .article-content {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: var(--text-lg);
     line-height: 1.8;
 }
@@ -1023,6 +1023,24 @@ img {
 
 .article-content tr:nth-child(even) {
     background-color: var(--bg-color);
+}
+
+/* 文章内容中的图标和emoji */
+.article-content img,
+.article-content svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.article-content p:has(.icon) {
+    display: inline-flex;
+    align-items: center;
+}
+
+.article-content .icon {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
 }
 
 /* 响应式设计 */
