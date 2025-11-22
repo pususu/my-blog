@@ -8,15 +8,15 @@
     /* 背景和文字颜色 */
     --bg-color: #f7f7f7;
     --bg-secondary: #ffffff;
-    --text-primary: #0f1922;
-    --text-secondary: #2c3e50;
+    --text-primary: #071726;
+    --text-secondary: #0f1922;
     --text-tertiary: #5a6c7d;
     --text-quaternary: #8a9ba8;
 
     /* 强调色 */
-    --accent-color: #0f1922;
-    --accent-hover: #0a141b;
-    --accent-light: #34495e;
+    --accent-color: #071726;
+    --accent-hover: #050e18;
+    --accent-light: #2c3e50;
 
     /* 边框和分割线 */
     --border-color: #e2e8f0;
@@ -901,7 +901,7 @@ img {
 }
 
 .article-content {
-    color: var(--text-primary);
+    color: var(--text-secondary);
     font-size: var(--text-lg);
     line-height: 1.8;
 }
