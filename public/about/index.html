@@ -1,40 +1,74 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关于我 - 蒲素的博客</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="doc-container">
         
-        <header class="article-top-nav">
+        <header class="doc-top-nav">
             <div class="nav-content">
-                <a href="/" class="back-home">
-                    ← 返回首页
-                </a>
-                <h1 class="article-page-title">蒲素的博客</h1>
+                <div class="nav-left">
+                    <a href="/" class="nav-brand">
+                        <img src="/avatar.jpg" alt="头像" class="nav-avatar">
+                        <span class="site-name">蒲素的博客</span>
+                    </a>
+                </div>
+                <nav class="nav-right">
+                    <a href="/">首页</a>
+                    <a href="/posts/">归档</a>
+                    <a href="/about/">关于</a>
+                </nav>
             </div>
         </header>
 
         
-        <main class="article-page">
-            <article class="main-article">
-                <div class="article-header">
-                    <h1 class="article-title-page">关于我</h1>
-                    
-                    
-                    <div class="article-meta">
-                        <time datetime="2024-01-10T00:00:00Z">
-                            2024年1月10日
-                        </time>
+        <div class="doc-main">
+            
+            <aside class="doc-sidebar-left">
+                <div class="sidebar-section">
+                    <h3>文章目录</h3>
+                    <div class="doc-toc">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#技术栈">技术栈</a>
+      <ul>
+        <li><a href="#前端开发">前端开发</a></li>
+        <li><a href="#后端开发">后端开发</a></li>
+        <li><a href="#开发工具">开发工具</a></li>
+      </ul>
+    </li>
+    <li><a href="#学习经历">学习经历</a></li>
+    <li><a href="#博客宗旨">博客宗旨</a></li>
+    <li><a href="#联系方式">联系方式</a></li>
+    <li><a href="#感谢">感谢</a></li>
+  </ul>
+</nav>
                     </div>
-                    
                 </div>
+            </aside>
 
-                <div class="article-content">
-                    <h1 id="关于蒲素">关于蒲素</h1>
+            
+            <main class="doc-content">
+                <article class="doc-article">
+                    <header class="doc-header">
+                        <h1 class="doc-title">关于我</h1>
+
+                        
+                        <div class="doc-meta">
+                            <time datetime="2024-01-10T00:00:00Z">
+                                2024年1月10日
+                            </time>
+                            
+                        </div>
+                        
+                    </header>
+
+                    <div class="doc-body">
+                        <h1 id="关于蒲素">关于蒲素</h1>
 <p>大家好，我是蒲素，一名热爱编程的开发者。</p>
 <h2 id="技术栈">技术栈</h2>
 <h3 id="前端开发">前端开发</h3>
@@ -79,12 +113,47 @@
 <p>&ldquo;Stay hungry, stay foolish.&rdquo; - Steve Jobs</p>
 </blockquote>
 
+                    </div>
+                </article>
+            </main>
+
+            
+            <aside class="doc-sidebar-right">
+                <div class="sidebar-section">
+                    <h3>文章信息</h3>
+                    <div class="doc-info">
+                        <div class="info-item">
+                            <span class="info-label">发布日期</span>
+                            <span class="info-value">2024-01-10</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">字数</span>
+                            <span class="info-value">60 字</span>
+                        </div>
+                    </div>
                 </div>
-            </article>
-        </main>
+
+                <div class="sidebar-section">
+                    <h3>最近文章</h3>
+                    <ul class="recent-posts">
+                        
+                        <li>
+                            <a href="http://localhost:1314/posts/hugo-tutorial/">Hugo博客搭建教程</a>
+                            <span class="post-date">01-20</span>
+                        </li>
+                        
+                        <li>
+                            <a href="http://localhost:1314/posts/hello-world/">Hello World - 我的博客正式上线</a>
+                            <span class="post-date">01-15</span>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </aside>
+        </div>
 
         
-        <footer class="article-footer">
+        <footer class="doc-footer">
             <p>&copy; 2025 蒲素. All rights reserved.</p>
         </footer>
     </div>

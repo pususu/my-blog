@@ -7,40 +7,96 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- 简洁的顶部导航栏 -->
-        <header class="article-top-nav">
+    <div class="doc-container">
+        <!-- 顶部导航栏 -->
+        <header class="doc-top-nav">
             <div class="nav-content">
-                <a href="/" class="back-home">
-                    ← 返回首页
-                </a>
-                <h1 class="article-page-title">{{ .Site.Title }}</h1>
+                <div class="nav-left">
+                    <a href="/" class="nav-brand">
+                        <img src="/avatar.jpg" alt="头像" class="nav-avatar">
+                        <span class="site-name">{{ .Site.Title }}</span>
+                    </a>
+                </div>
+                <nav class="nav-right">
+                    <a href="/">首页</a>
+                    <a href="/posts/">归档</a>
+                    <a href="/about/">关于</a>
+                </nav>
             </div>
         </header>
 
-        <!-- 文章正文内容 -->
-        <main class="article-page">
-            <article class="main-article">
-                <div class="article-header">
-                    <h1 class="article-title-page">{{ .Title }}</h1>
-                    
-                    {{ if .Date }}
-                    <div class="article-meta">
-                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                            {{ .Date.Format "2006年1月2日" }}
-                        </time>
+        <!-- 主体内容区域 -->
+        <div class="doc-main">
+            <!-- 左侧目录 -->
+            <aside class="doc-sidebar-left">
+                <div class="sidebar-section">
+                    <h3>文章目录</h3>
+                    <div class="doc-toc">
+                        {{ .TableOfContents }}
                     </div>
-                    {{ end }}
+                </div>
+            </aside>
+
+            <!-- 中间文档内容 -->
+            <main class="doc-content">
+                <article class="doc-article">
+                    <header class="doc-header">
+                        <h1 class="doc-title">{{ .Title }}</h1>
+
+                        {{ if .Date }}
+                        <div class="doc-meta">
+                            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                                {{ .Date.Format "2006年1月2日" }}
+                            </time>
+                            {{ with .Params.categories }}
+                            <span class="doc-categories">
+                                {{ range $i, $cat := . }}
+                                    {{ if $i }}, {{ end }}{{ $cat }}
+                                {{ end }}
+                            </span>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </header>
+
+                    <div class="doc-body">
+                        {{ .Content }}
+                    </div>
+                </article>
+            </main>
+
+            <!-- 右侧辅助信息 -->
+            <aside class="doc-sidebar-right">
+                <div class="sidebar-section">
+                    <h3>文章信息</h3>
+                    <div class="doc-info">
+                        <div class="info-item">
+                            <span class="info-label">发布日期</span>
+                            <span class="info-value">{{ .Date.Format "2006-01-02" }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">字数</span>
+                            <span class="info-value">{{ .WordCount }} 字</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="article-content">
-                    {{ .Content }}
+                <div class="sidebar-section">
+                    <h3>最近文章</h3>
+                    <ul class="recent-posts">
+                        {{ range first 5 (where site.RegularPages "Type" "posts") }}
+                        <li>
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            <span class="post-date">{{ .Date.Format "01-02" }}</span>
+                        </li>
+                        {{ end }}
+                    </ul>
                 </div>
-            </article>
-        </main>
+            </aside>
+        </div>
 
-        <!-- 简洁的底部 -->
-        <footer class="article-footer">
+        <!-- 底部 -->
+        <footer class="doc-footer">
             <p>&copy; {{ now.Year }} {{ .Site.Params.author | default "蒲素" }}. All rights reserved.</p>
         </footer>
     </div>

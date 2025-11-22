@@ -1,40 +1,124 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1314&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hugo博客搭建教程 - 蒲素的博客</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="doc-container">
         
-        <header class="article-top-nav">
+        <header class="doc-top-nav">
             <div class="nav-content">
-                <a href="/" class="back-home">
-                    ← 返回首页
-                </a>
-                <h1 class="article-page-title">蒲素的博客</h1>
+                <div class="nav-left">
+                    <a href="/" class="nav-brand">
+                        <img src="/avatar.jpg" alt="头像" class="nav-avatar">
+                        <span class="site-name">蒲素的博客</span>
+                    </a>
+                </div>
+                <nav class="nav-right">
+                    <a href="/">首页</a>
+                    <a href="/posts/">归档</a>
+                    <a href="/about/">关于</a>
+                </nav>
             </div>
         </header>
 
         
-        <main class="article-page">
-            <article class="main-article">
-                <div class="article-header">
-                    <h1 class="article-title-page">Hugo博客搭建教程</h1>
-                    
-                    
-                    <div class="article-meta">
-                        <time datetime="2025-01-20T14:30:00Z">
-                            2025年1月20日
-                        </time>
+        <div class="doc-main">
+            
+            <aside class="doc-sidebar-left">
+                <div class="sidebar-section">
+                    <h3>文章目录</h3>
+                    <div class="doc-toc">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是hugo">什么是Hugo？</a></li>
+    <li><a href="#安装hugo">安装Hugo</a>
+      <ul>
+        <li><a href="#macos安装">macOS安装</a></li>
+        <li><a href="#windows安装">Windows安装</a></li>
+        <li><a href="#linux安装">Linux安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#创建新站点">创建新站点</a></li>
+    <li><a href="#安装主题">安装主题</a>
+      <ul>
+        <li><a href="#1-git子模块方式">1. Git子模块方式</a></li>
+        <li><a href="#2-直接下载">2. 直接下载</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置文件">配置文件</a>
+      <ul>
+        <li><a href="#configyaml-推荐">config.yaml (推荐)</a></li>
+      </ul>
+    </li>
+    <li><a href="#创建内容">创建内容</a>
+      <ul>
+        <li><a href="#创建文章">创建文章</a></li>
+        <li><a href="#文章模板">文章模板</a></li>
+      </ul>
+    </li>
+    <li><a href="#本地开发">本地开发</a></li>
+    <li><a href="#自定义主题">自定义主题</a>
+      <ul>
+        <li><a href="#目录结构">目录结构</a></li>
+        <li><a href="#自定义css">自定义CSS</a></li>
+      </ul>
+    </li>
+    <li><a href="#部署博客">部署博客</a>
+      <ul>
+        <li><a href="#部署到github-pages">部署到GitHub Pages</a></li>
+        <li><a href="#使用github-actions">使用GitHub Actions</a></li>
+      </ul>
+    </li>
+    <li><a href="#高级功能">高级功能</a>
+      <ul>
+        <li><a href="#代码高亮">代码高亮</a></li>
+        <li><a href="#短代码">短代码</a></li>
+        <li><a href="#分类和标签">分类和标签</a></li>
+      </ul>
+    </li>
+    <li><a href="#性能优化">性能优化</a>
+      <ul>
+        <li><a href="#图片优化">图片优化</a></li>
+        <li><a href="#资源管道">资源管道</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
                     </div>
-                    
                 </div>
+            </aside>
 
-                <div class="article-content">
-                    <h1 id="hugo博客搭建教程">Hugo博客搭建教程</h1>
+            
+            <main class="doc-content">
+                <article class="doc-article">
+                    <header class="doc-header">
+                        <h1 class="doc-title">Hugo博客搭建教程</h1>
+
+                        
+                        <div class="doc-meta">
+                            <time datetime="2025-01-20T14:30:00Z">
+                                2025年1月20日
+                            </time>
+                            
+                            <span class="doc-categories">
+                                
+                                    教程
+                                
+                                    , Hugo
+                                
+                            </span>
+                            
+                        </div>
+                        
+                    </header>
+
+                    <div class="doc-body">
+                        <h1 id="hugo博客搭建教程">Hugo博客搭建教程</h1>
 <p>Hugo是一个强大的静态站点生成器，用Go语言编写，构建速度极快。本教程将教你如何从零开始搭建一个Hugo博客。</p>
 <h2 id="什么是hugo">什么是Hugo？</h2>
 <p>Hugo是由Steve Francia创建的静态网站生成器，具有以下特点：</p>
@@ -242,12 +326,47 @@
 <li><a href="https://discourse.gohugo.io/">Hugo社区</a></li>
 </ul>
 
+                    </div>
+                </article>
+            </main>
+
+            
+            <aside class="doc-sidebar-right">
+                <div class="sidebar-section">
+                    <h3>文章信息</h3>
+                    <div class="doc-info">
+                        <div class="info-item">
+                            <span class="info-label">发布日期</span>
+                            <span class="info-value">2025-01-20</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">字数</span>
+                            <span class="info-value">359 字</span>
+                        </div>
+                    </div>
                 </div>
-            </article>
-        </main>
+
+                <div class="sidebar-section">
+                    <h3>最近文章</h3>
+                    <ul class="recent-posts">
+                        
+                        <li>
+                            <a href="http://localhost:1314/posts/hugo-tutorial/">Hugo博客搭建教程</a>
+                            <span class="post-date">01-20</span>
+                        </li>
+                        
+                        <li>
+                            <a href="http://localhost:1314/posts/hello-world/">Hello World - 我的博客正式上线</a>
+                            <span class="post-date">01-15</span>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </aside>
+        </div>
 
         
-        <footer class="article-footer">
+        <footer class="doc-footer">
             <p>&copy; 2025 蒲素. All rights reserved.</p>
         </footer>
     </div>
