@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>归档 - {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <div class="nav-brand">
+                        <img src="/avatar.jpg" alt="头像" class="avatar">
+                        <h1 class="site-title">{{ .Site.Title }}</h1>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <a href="/">首页</a>
+                    <a href="/posts/">归档</a>
+                    <a href="/about/">关于</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- 归档内容 -->
+        <main class="archive-page">
+            <div class="archive-header">
+                <h1 class="archive-title">文章归档</h1>
+                <p class="archive-subtitle">共 {{ len .Site.RegularPages }} 篇文章</p>
+            </div>
+
+            <div class="archive-timeline-container">
+                {{ range (.Site.RegularPages.GroupByDate "2006年1月") }}
+                <div class="archive-month-group">
+                    <div class="archive-month-header">
+                        <h2 class="archive-month">{{ .Key }}</h2>
+                        <span class="archive-count">{{ len .Pages }} 篇文章</span>
+                    </div>
+                    <div class="archive-posts-grid">
+                        {{ range .Pages }}
+                        <article class="archive-post-card">
+                            <div class="archive-post-header">
+                                <time class="archive-post-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                                    {{ .Date.Format "1月2日" }}
+                                </time>
+                            </div>
+                            <h3 class="archive-post-title">
+                                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            </h3>
+                            {{ with .Params.tags }}
+                            <div class="archive-post-tags">
+                                {{ range first 3 . }}
+                                <span class="archive-tag">{{ . }}</span>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                        </article>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </main>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            <p>&copy; {{ now.Year }} {{ .Site.Params.author | default "蒲素" }}. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
